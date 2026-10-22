@@ -304,12 +304,14 @@ function mostrarPresentacion() {
     presentacion.classList.remove('oculto');
 }
 
-
 function volverAlInicio() {
     presentacion.classList.add('oculto');
     contenido.classList.remove('oculto');
 }
 
-enlace.addEventListener('click', mostrarInfo);
-infoAbout.addEventListener('click', mostrarPresentacion);
-presentacion.addEventListener('click', volverAlInicio);
+// Pa que solo se muestre en la vista que corresponde
+if (enlace && infoAbout && presentacion && contenido) {
+    enlace.addEventListener('click', mostrarInfo);
+    infoAbout.addEventListener('click', mostrarPresentacion);
+    presentacion.addEventListener('click', volverAlInicio);
+}
