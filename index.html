@@ -5,28 +5,41 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Los Backrooms</title>
-  <link rel="stylesheet" href="styles.css" />
   <script src="app.js" defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
   <link
     href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
     rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
-  <header class="navbar">
-    <a href="index.html" class="logo">BACKROOMS</a>
-
-    <nav>
-      <ul class="nav-links">
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="quienes-somos.html">Quiénes somos</a></li>
-        <li><a href="contacto.html">Contáctanos</a></li>
-      </ul>
-    </nav>
-  </header>
+  <!--Nav con toggler cuando hay breakpoint-->
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">BACKROOMS</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="index.html">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="quienes-somos.html">Quiénes somos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contacto.html">Contáctanos</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
   <!-- CUERPO -->
   <main>
@@ -57,10 +70,9 @@
           SÍ... VOY A ENTRAR →
         </a>
       </div>
-      <img 
-        src="https://images.unsplash.com/photo-1635728153590-f9c4f75cf78d?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D" 
-        alt="Pasillo largo y oscuro de hotel iluminado por luces verdes de emergencia" 
-        class="inicio-foto">
+      <img
+        src="https://images.unsplash.com/photo-1635728153590-f9c4f75cf78d?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
+        alt="Pasillo largo y oscuro de hotel iluminado por luces verdes de emergencia" class="inicio-foto">
     </section>
     </section>
 
@@ -205,34 +217,49 @@
     </section>
   </main>
 
-  <footer>
-    <div>
-      <p class="n1">
-        <strong>BACKROOMS.EXE</strong>
-      </p>
-    </div>
+  <footer class="footer py-5 px-4"> <!--agrega espacio interno vertical (py-5) y horizontal (px-4)-->
+    <div class="container-fluid"> <!--abarca todo el ancho de la pantalla-->
+      <!--para que las columnas se pongan una al lado de la otra-->
+      <div class="row g-4">
 
-    <div>
-      <p>
-        <strong>Contáctanos:</strong>
-      </p>
-      <p>12312455</p>
-      <p>
-        <a href="mailto:soporte@agenciademedios.com">Mail: soporte@agenciademedios.com</a>
-      </p>
-    </div>
+        <!--columna 1: nombre de la web-->
+        <div class="col-md-4 text-center text-md-start"> <!--ocupa 4 de 12 espacios en PC (col-md-4), centra en móvil y alinea a la izquierda en pantallas grandes-->
+          <p class="footer-brand">
+            <strong>BACKROOMS.EXE</strong>
+          </p>
+        </div>
 
-    <div>
-      <p><strong>Autores (Equipo de Agencia):</strong></p>
-      <ul>
-        <li>Michalle Muñoz</li>
-        <li>Alexandra Del Valle</li>
-        <li>Camilo Forero</li>
-        <li>Isaac Alarcón</li>
-      </ul>
+        <!--columna 2: datos de contacto-->
+        <div class="col-md-4 text-center text-md-start">
+          <p class="footer-titulo">
+            <strong>Contáctanos:</strong>
+          </p>
+          <p class="footer-texto">12312455</p>
+          <p class="footer-texto">
+            <a href="mailto:soporte@agenciademedios.com" class="footer-link">Mail: soporte@agenciademedios.com</a>
+          </p>
+        </div>
+
+        <!--columna 3: autores-->
+        <div class="col-md-4 text-center text-md-start">
+          <p class="footer-titulo">
+            <strong>Autores (Equipo de Agencia):</strong>
+          </p>
+          <ul class="footer-nombres">
+            <li>Michalle Muñoz</li>
+            <li>Alexandra Del Valle</li>
+            <li>Camilo Forero</li>
+            <li>Isaac Alarcón</li>
+          </ul>
+        </div>
+
+      </div>
     </div>
   </footer>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
 </body>
 
 </html>
