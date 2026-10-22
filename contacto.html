@@ -1,0 +1,497 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Los Backrooms</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet" />
+</head>
+
+<!-- ESTILOS CSS PROPIOS DE ESTA PÁGINA DE CONTACTO. -->
+<style>
+    /* Fondo de la página: usa los colores definidos en las variables globales y un GIF. */
+    body {
+        background-color: var(--void);
+        background-image: url(https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExa3g2Z3ZjdDl2Z2w4b3RtbDJkeHk4Ym5sbjRra2xqeHIwYjBrbnlrYSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/UyYcK4GZKyBHA44JXW/giphy.gif);
+        color: var(--void);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+
+    /* Separa ligeramente el contenido principal de la parte superior e inferior */
+    main {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        background-color: transparent;
+    }
+
+    /* Contenedor general: limita el ancho, centra el contenido y crea un efecto de vidrio. */
+    .contacto {
+        max-width: 60rem;
+        margin: 0 auto;
+        padding: 1rem;
+
+        background: color-mix(in srgb,
+                var(--carpet) 35%,
+                transparent);
+
+        /* Desenfoca lo que queda detrás del contenedor (efecto cristal). */
+        backdrop-filter: blur(12px);
+        /* Prefijo para compatibilidad con navegadores basados en WebKit. */
+        -webkit-backdrop-filter: blur(12px);
+
+        border: 1px solid rgba(255, 255, 220, 0.25);
+        border-radius: 1rem;
+
+        box-shadow:
+            0 8px 32px rgba(0, 0, 0, 0.20),
+            inset 0 1px 0 rgba(255, 255, 255, 0.15);
+
+        gap: 0.75rem;
+    }
+
+    /* Organiza las tarjetas de contacto en dos columnas con espacio entre ellas. */
+    .canales-contacto {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1rem;
+
+    }
+
+    /* Hace que el título y la introducción ocupen todo el ancho de la cuadrícula. */
+    .canales-cabecera {
+        text-align: center;
+        grid-column: 1 / -1;
+    }
+
+    p {
+        font-size: small;
+        font-style: italic;
+    }
+
+    /* Apariencia de cada tarjeta de contacto: fondo, bordes, sombra y animación. */
+    .canal {
+        min-width: 0;
+        padding: 1rem;
+
+        background: color-mix(in srgb,
+                var(--bg-wall) 82%,
+                #655034);
+
+        border: 1px solid rgba(65, 48, 27, 0.65);
+        border-radius: 1rem;
+
+        box-shadow:
+            0 4px 12px rgba(25, 17, 8, 0.15),
+            inset 0 1px 0 rgba(255, 255, 220, 0.25);
+
+        /* Permite partir textos largos, como correos, para que no se salgan de la tarjeta. */
+        overflow-wrap: anywhere;
+
+        /* Suaviza los cambios visuales que ocurren al pasar el cursor. */
+        transition:
+            transform 0.25s ease,
+            box-shadow 0.25s ease,
+            background 0.25s ease;
+    }
+
+    /* Al pasar el cursor, aclara la tarjeta, la eleva un poco y refuerza la sombra. */
+    .canal:hover {
+        background: color-mix(in srgb,
+                var(--bg-wall) 90%,
+                white);
+
+        transform: translateY(-3px);
+
+        box-shadow:
+            0 8px 20px rgba(25, 17, 8, 0.22),
+            inset 0 1px 0 rgba(255, 255, 220, 0.4);
+    }
+
+    /* Estilo de los subtítulos dentro de las tarjetas. */
+    .canal h2 {
+        color: var(--void);
+        margin-top: 0.5rem;
+    }
+
+    /* Mejora la legibilidad de los párrafos dentro de cada tarjeta. */
+    .canal p {
+        color: var(--void);
+        line-height: 1.5;
+    }
+
+    /* Apariencia inicial de los enlaces de contacto. */
+    .canal a {
+        text-decoration: none;
+        outline: none;
+        text-underline-offset: 3px;
+        color: var(--void);
+
+        transition:
+            color 0.25s ease,
+            text-shadow 0.25s ease;
+    }
+
+    /* Resalta los enlaces al pasar el cursor con el color neón y un brillo. */
+    .canal a:hover {
+        color: var(--neon);
+        text-shadow: 0 0 8px var(--neon);
+    }
+
+    /* Caja introductoria que presenta el formulario con un estilo semitransparente. */
+    .introduccion-contacto {
+        margin-top: 1.5rem;
+        padding: 1.5rem;
+
+        background: color-mix(in srgb, var(--carpet) 20%, transparent);
+        border: 1px solid color-mix(in srgb, var(--neon) 20%, transparent);
+        border-radius: 1rem;
+    }
+
+    /* Tipografía y separación del título de la introducción. */
+    .introduccion-contacto h2 {
+        color: var(--bg-wall);
+        font-family: var(--font-title);
+        margin: 0.75rem 0;
+    }
+
+    /* Texto decorativo que simula una etiqueta o mensaje del sistema Backrooms. */
+    .texto-sistema {
+        color: var(--neon);
+        font-family: var(--font-title);
+        font-size: 0.8rem;
+        letter-spacing: 0.08em;
+    }
+
+    /* Contenedor visual del formulario. */
+    .formulario-contacto {
+        margin-top: 1rem;
+        padding: 1.5rem;
+
+        background: color-mix(in srgb, var(--carpet) 25%, transparent);
+        border: 1px solid color-mix(in srgb, var(--neon) 25%, transparent);
+        border-radius: 1rem;
+    }
+
+    #formContacto .campo {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        margin-bottom: 1.2rem;
+    }
+
+    /* Estilo de las etiquetas que describen cada campo del formulario. */
+    #formContacto label {
+        color: var(--void);
+        font-family: var(--font-text);
+        font-weight: 600;
+        font-size: 0.95rem;
+    }
+
+    /* Estilo compartido por inputs y textarea: tamaño, relleno, colores y bordes. */
+    #formContacto .form-control {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0.85rem 1rem;
+
+        color: var(--void);
+        background: color-mix(in srgb, var(--bg-wall) 90%, transparent);
+
+        border: 1px solid var(--carpet);
+        border-radius: 0.6rem;
+
+        font-family: var(--font-text);
+        font-size: 0.95rem;
+
+        transition:
+            background 0.2s ease,
+            border-color 0.2s ease,
+            box-shadow 0.2s ease;
+    }
+
+    /* Color del texto de ejemplo que aparece dentro de los campos vacíos. */
+    #formContacto .form-control::placeholder {
+        color: color-mix(in srgb, var(--text) 65%, transparent);
+    }
+
+    /* Estado de enfoque: indica visualmente qué campo está seleccionado. */
+    #formContacto .form-control:focus {
+        outline: none;
+        background: var(--bg-wall);
+        border-color: var(--neon);
+        box-shadow: 0 0 0 3px color-mix(in srgb, var(--neon) 25%, transparent);
+    }
+
+    /* El área de mensaje tiene una altura mínima y permite cambiar su altura verticalmente. */
+    #formContacto textarea {
+        min-height: 140px;
+        resize: vertical;
+    }
+
+    #formContacto .acciones-formulario {
+        margin-top: 1.5rem;
+    }
+
+    /* Estilo base del botón que envía el formulario. */
+    #formContacto button[type="submit"] {
+        padding: 0.85rem 1.5rem;
+
+        color: var(--bg-wall);
+        background-color: var(--text);
+
+        border: 1px solid color-mix(in srgb, var(--void) 50%, transparent);
+        border-radius: 0.6rem;
+
+        font-family: var(--font-title);
+        font-weight: 700;
+        font-size: 1rem;
+
+        cursor: pointer;
+
+        transition:
+            background 0.2s ease,
+            transform 0.2s ease,
+            box-shadow 0.2s ease;
+    }
+
+    /* Efecto del botón cuando el cursor está encima. */
+    #formContacto button[type="submit"]:hover {
+        background: var(--neon);
+        transform: translateY(-2px);
+        box-shadow: 0 5px 16px color-mix(in srgb, var(--void) 25%, transparent);
+    }
+
+    /* Indicador visible para navegar hasta el botón usando el teclado. */
+    #formContacto button[type="submit"]:focus-visible {
+        outline: 2px solid var(--neon);
+        outline-offset: 4px;
+    }
+
+    /* Estilo de los avisos que mantienen el tono inquietante del sitio. */
+    #formContacto .aviso-inquietante {
+        margin-top: 1.25rem;
+        color: var(--bg-wall);
+        font-family: var(--font-text);
+        font-size: 0.8rem;
+    }
+</style>
+
+<body>
+    <!-- ENCABEZADO -->
+    <header class="navbar">
+        <a href="index.html" class="logo">BACKROOMS</a>
+
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="quienes-somos.html">Quiénes somos</a></li>
+                <li><a href="contacto.html">Contáctanos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- CUERPO -->
+    <main>
+        <section class="contacto">
+
+            <!-- CANALES DE CONTACTO -->
+            <section class="canales-contacto">
+                <div class="canales-cabecera">
+                    <h1>¿CÓMO CONTACTARNOS?</h1>
+
+                    <p>
+                        Nuestro equipo está disponible para atender tus solicitudes.
+                        Por favor, utiliza el canal correspondiente.
+                    </p>
+                </div>
+
+
+                <!-- ATENCIÓN AL CLIENTE -->
+                <div class="canal">
+                    <h2>Atención al cliente</h2>
+
+                    <p>
+                        ¿Tienes alguna duda sobre tu visita?
+                        Estamos aquí para ayudarte.
+                    </p>
+
+                    <p>
+                        <strong>
+                            <a href="mailto:atencionalcliente@backrooms.com.co">
+                                atencionalcliente@backrooms.com.co
+                            </a>
+                        </strong>
+                    </p>
+                </div>
+
+                <!-- ATENCIÓN A PROVEEDORES -->
+                <div class="canal">
+                    <h2>Atención al proveedor</h2>
+
+                    <p>
+                        Para consultas comerciales y solicitudes
+                        relacionadas con nuestros servicios:
+                    </p>
+
+                    <p>
+                        <strong>
+                            <a href="mailto:atencionproveedores@backrooms.com.co">
+                                atencionproveedores@backrooms.com.co
+                            </a>
+                        </strong>
+                    </p>
+                </div>
+
+                <!-- PQRS -->
+                <div class="canal">
+                    <h2>Radicar PQRS</h2>
+
+                    <p>
+                        Puedes presentar peticiones, quejas,
+                        reclamos o sugerencias a través de nuestro
+                        canal de atención al cliente.
+                    </p>
+
+                    <strong>
+                        <a href="mailto:atencionalcliente@backrooms.com.co">
+                            Enviar una PQRS
+                        </a>
+                    </strong>
+
+                    <p class="aviso-inquietante">
+                        No garantizamos respuesta.
+                    </p>
+                </div>
+
+                <!-- WHATSAPP -->
+                <div class="canal">
+                    <h2>Contáctanos por WhatsApp</h2>
+
+                    <p>
+                        Podemos ayudarte con algunas de tus dudas.
+                        <br>Otras deberán permanecer sin respuesta.
+                    </p>
+
+                    <strong>
+                        <a href="https://wa.me/57XXXXXXXXXX" target="_blank" rel="noopener noreferrer">
+                            Escribir por WhatsApp
+                        </a>
+                    </strong>
+                </div>
+            </section>
+
+            <!-- INTRODUCCIÓN AL FORMULARIO -->
+            <section class="introduccion-contacto">
+                <p class="texto-sistema">
+                    REGISTRO DE VISITANTES: NIVEL 0
+                </p>
+
+                <h2>Hablemos de tu visita</h2>
+
+                <p>
+                    Si has tenido algún inconveniente durante tu visita,
+                    puedes contárnoslo a continuación.
+                </p>
+
+                <p class="aviso-inquietante">
+                    Por favor, describe los hechos tal como los recuerdas.
+                    No omitas ningún detalle.
+                </p>
+            </section>
+
+            <!-- FORMULARIO -->
+            <section class="formulario-contacto">
+                <form id="formContacto">
+
+                    <div class="campo">
+                        <label for="nombre">Nombre</label>
+
+                        <input type="text" class="form-control" name="nombre" id="nombre"
+                            placeholder="¿Cómo debemos llamarte?" autocomplete="name" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="telefono">Teléfono</label>
+
+                        <input type="tel" class="form-control" name="telefono" id="telefono" placeholder="300 000 0000"
+                            autocomplete="tel" inputmode="tel" maxlength="14" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="correo">Correo electrónico</label>
+
+                        <input type="email" class="form-control" id="correo" name="correo"
+                            placeholder="tucorreo@ejemplo.com" autocomplete="email" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="asunto">Asunto</label>
+
+                        <input type="text" class="form-control" id="asunto" name="asunto"
+                            placeholder="Desapareció mi mamá" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="mensaje">
+                            Motivo del contacto
+                        </label>
+
+                        <textarea class="form-control" name="mensaje" id="mensaje" rows="5"
+                            placeholder="Cuéntanos qué ocurrió..." required></textarea>
+                    </div>
+
+                    <div class="acciones-formulario">
+                        <button type="submit">¿Enviar?</button>
+                    </div>
+
+                    <p class="aviso-inquietante">
+                        Una vez enviado, el registro permanecerá con nosotros.
+                    </p>
+
+                </form>
+            </section>
+
+        </section>
+    </main>
+
+    <!-- PIE DE PÁGINA -->
+    <footer>
+        <div>
+            <p class="n1">
+                <strong>BACKROOMS.EXE</strong>
+            </p>
+        </div>
+
+        <div>
+            <p>
+                <strong>Contáctanos:</strong>
+            </p>
+            <p>12312455</p>
+            <p>
+                <a href="mailto:soporte@agenciademedios.com">Mail: soporte@agenciademedios.com</a>
+            </p>
+        </div>
+
+        <div>
+            <p><strong>Autores (Equipo de Agencia):</strong></p>
+            <ul>
+                <li>Michalle Muñoz</li>
+                <li>Alexandra Del Valle</li>
+                <li>Camilo Forero</li>
+                <li>Isaac Alarcón</li>
+            </ul>
+        </div>
+    </footer>
+</body>
+
+</html>

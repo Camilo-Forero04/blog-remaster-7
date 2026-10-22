@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/e4df4f1c22.js"
+      crossorigin="anonymous"
+      defer
+    ></script>
+  </head>
+  <body>
+    <!-- ENCABEZADO -->
+    <header class="navbar">
+      <a href="index.html" class="logo">BACKROOMS</a>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="quienes-somos.html">Quiénes somos</a></li>
+          <li><a href="contacto.html">Contáctanos</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- CUERPO -->
+    <main>
+      <section id="video">
+        <video autoplay muted loop playsinline>
+          <source src="video.mp4" type="video/mp4" />
+        </video>
+
+        <div id="contenido">
+          <h1>Sobre Nuestra Agencia de Desarrollo</h1>
+          <a href="#info-about"><h2>¿Quiénes Somos?</h2></a>
+        </div>
+
+        <section class="oculto" id="info-about">
+          <p>
+            Somos un equipo multidisciplinario de
+            <strong>desarrollo web</strong> constituido<br />
+            como una agencia digital para el proyecto AD-07. Nos especializamos
+            en<br />
+            maquetación <em>HTML5</em>, diseño responsivo con <em>CSS3</em>,
+            control de versiones<br />
+            mediante <em>Git/GitHub</em> y gestión ágil de proyectos utilizando
+            marcos de<br />
+            trabajo como <em>Scrum</em>.
+          </p>
+          <span class="pista">
+            <i class="fa-solid fa-hand-pointer"></i> Haz clic para continuar
+          </span>
+        </section>
+
+        <section class="oculto" id="presentacion">
+          <div id="equipo">
+            <h2>Nuestro Equipo y Roles</h2>
+          </div>
+          <div id="equipo-about">
+            <div class="rol">
+              <h3>Product Owner</h3>
+              <p>
+                Encargado de la interlocución con el cliente, la definición de
+                las historias de usuario y la priorización del Backlog del
+                proyecto.
+              </p>
+              <i class="fa-solid fa-user"></i>
+            </div>
+
+            <div class="rol">
+              <h3>Scrum Master</h3>
+              <p>
+                Responsable de velar por el cumplimiento de la metodología ágil,
+                remover bloqueos en el equipo y coordinar los sprints.
+              </p>
+              <i class="fa-brands fa-trello"></i>
+            </div>
+
+            <div class="rol">
+              <h3>Desarrolladores</h3>
+              <p>
+                Especialistas en la maquetación semántica, diseño visual y
+                estructuración del código en GitHub.
+              </p>
+              <i class="fa-solid fa-code"></i>
+            </div>
+          </div>
+          <span class="pista">
+            <i class="fa-solid fa-hand-pointer"></i> Haz clic para continuar
+          </span>
+        </section>
+      </section>
+    </main>
+    <!-- PIE DE PÁGINA -->
+    <footer>
+      <div>
+        <p class="n1">
+          <strong>BACKROOMS.EXE</strong>
+        </p>
+      </div>
+
+      <div>
+        <p>
+          <strong>Contáctanos:</strong>
+        </p>
+        <p>12312455</p>
+        <p>
+          <a href="mailto:soporte@agenciademedios.com"
+            >Mail: soporte@agenciademedios.com</a
+          >
+        </p>
+      </div>
+
+      <div>
+        <p><strong>Autores (Equipo de Agencia):</strong></p>
+        <ul>
+          <li>Michalle Muñoz</li>
+          <li>Alexandra Del Valle</li>
+          <li>Camilo Forero</li>
+          <li>Isaac Alarcón</li>
+        </ul>
+      </div>
+    </footer>
+  </body>
+</html>
