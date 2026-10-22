@@ -82,9 +82,9 @@ main {
   background-color: var(--void);
 }
 
-#que-son, 
-#niveles, 
-#entidades, 
+#que-son,
+#niveles,
+#entidades,
 #misterio {
   max-width: 64rem;
   margin: 0 auto;
@@ -92,7 +92,7 @@ main {
   padding-bottom: 80px;
   padding-left: 24px;
   padding-right: 24px;
-  border-bottom: 5px solid var(--carpet); 
+  border-bottom: 5px solid var(--carpet);
 }
 
 #misterio {
@@ -175,8 +175,8 @@ main {
 .inicio-foto {
   display: block;
   width: 45%;
-  height: 22rem; 
-  object-fit: cover; 
+  height: 22rem;
+  object-fit: cover;
   border: 2px solid var(--carpet);
 }
 
@@ -295,11 +295,11 @@ footer a:hover {
     padding-top: 60px;
     padding-bottom: 60px;
   }
-  
+ 
   .inicio-contenido {
     width: 100%;
   }
-  
+ 
   .inicio-foto {
     width: 100%;
     height: 250px;
@@ -364,34 +364,17 @@ body{
 }
 
 #info-about {
-    background-color: var(--void);
     color: var(--neon);
-    width: 55%;
-    text-align: center;
-    padding: 20px 30px;
-    border-radius: 12px;
     cursor: pointer;
     font-size: x-large;
 }
-
-a{
+#contenido a {
     text-decoration: none;
     color: var(--bg-wall);
 }
 
-a:hover{
+#contenido a:hover {
     color: var(--neon);
-}
-
-#info-about{
-    background-color: var(--void);
-    color: var(--neon);
-    width: 55%;
-    text-align: center;
-    padding: 20px 30px;
-    border-radius: 12px;
-    margin: 0 auto;
-    margin-top: 16px;
 }
 
 em,
@@ -456,3 +439,8 @@ strong{
 @keyframes parpadeo {
     50% { opacity: 0.3; }
 }
+
+.cajita{
+  background-color: var(--void);
+}
+
